@@ -1,0 +1,46 @@
+
+ <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand text-white">JWT Auth System</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/adminpanel"></a>
+    </li>
+  </ul>
+  <button class="btn btn-danger my-2 my-sm-0" (click)="backClicked()">Return</button>
+</nav>
+
+ <h1 class="display-4 text-center"style="background-color:DodgerBlue">modifica arte</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <app-home-form></app-home-form>    
+    
+  </div>
+
+  <div class="col-md-6">
+      <table class="table">
+          <thead class="thead-light">
+              <tr>
+                  <th>usuario</th>
+                  <th>link</th>
+                  <th>dia</th>
+                  <th>tag</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+             
+            <tr *ngFor= "let ad of artdetaService.list" >
+                  <td style="color:white;"(click)="populateForm(ad)">{{ad.arteOwner}}</td>
+                  <td style="color:white;"(click)="populateForm(ad)"> {{ad.arteLink}}</td>
+                  <td style="color:white;"(click)="populateForm(ad)"> {{ad.arteDate}}</td>
+                  <td style="color:white;"(click)="populateForm(ad)"> {{ad.arteTag}}</td> 
+                  <td>
+                      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(ad.arteId)"></i>
+                  </td>
+                  
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
